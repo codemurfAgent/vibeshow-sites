@@ -1,0 +1,27 @@
+{
+  "business_name": "Taste of India",
+  "category": "restaurant",
+  "city": "Indore",
+  "description": "Hi, I run a restaurant in Indore called Taste of India. I need a website for my business.",
+  "services": [
+    "Fine Dining",
+    "Catering",
+    "Home Delivery",
+    "Private Events"
+  ],
+  "phone": "+91-98930-12345",
+  "email": "owner@tasteofindia.in",
+  "address": "Main Market, Indore",
+  "generated_at": "2026-06-20T13:45:25.491152",
+  "generator": "VibeShow Website Auto-Generator v1.0",
+  "templates": "restaurant-business-site",
+  "folder": "taste-of-india",
+  "files": [
+    "index.html",
+    "css/style.css",
+    "js/script.js",
+    "vercel.json"
+  ],
+  "deployed": false,
+  "url": null
+}
