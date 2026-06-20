@@ -1,0 +1,29 @@
+{
+  "business_name": "EduSmart Academy",
+  "category": "education",
+  "city": "Lucknow",
+  "description": "Premier coaching institute for IIT-JEE and NEET preparation.",
+  "services": [
+    "IIT-JEE Coaching",
+    "NEET Coaching",
+    "Foundation Courses",
+    "Online Classes",
+    "Study Material",
+    "Mock Tests"
+  ],
+  "phone": "",
+  "email": "",
+  "address": "Main Market, Lucknow",
+  "generated_at": "2026-06-20T13:43:55.862552",
+  "generator": "VibeShow Website Auto-Generator v1.0",
+  "templates": "education-business-site",
+  "folder": "edusmart-academy",
+  "files": [
+    "index.html",
+    "css/style.css",
+    "js/script.js",
+    "vercel.json"
+  ],
+  "deployed": false,
+  "url": null
+}
