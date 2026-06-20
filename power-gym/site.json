@@ -1,0 +1,29 @@
+{
+  "business_name": "Power Gym",
+  "category": "gym",
+  "city": "Nagpur",
+  "description": "Best gym in Nagpur with modern equipment and certified trainers.",
+  "services": [
+    "Personal Training",
+    "Group Classes",
+    "Yoga",
+    "Cardio",
+    "Weight Training",
+    "CrossFit"
+  ],
+  "phone": "+91-77777-88888",
+  "email": "",
+  "address": "Main Market, Nagpur",
+  "generated_at": "2026-06-20T13:43:54.595052",
+  "generator": "VibeShow Website Auto-Generator v1.0",
+  "templates": "gym-business-site",
+  "folder": "power-gym",
+  "files": [
+    "index.html",
+    "css/style.css",
+    "js/script.js",
+    "vercel.json"
+  ],
+  "deployed": false,
+  "url": null
+}
