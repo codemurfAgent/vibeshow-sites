@@ -1,0 +1,27 @@
+{
+  "business_name": "Spice Garden",
+  "category": "restaurant",
+  "city": "Indore",
+  "description": "Authentic Indian restaurant serving traditional cuisine since 2010",
+  "services": [
+    "Fine Dining",
+    "Catering",
+    "Home Delivery",
+    "Private Events"
+  ],
+  "phone": "+91-98930-12345",
+  "email": "info@spicegarden.in",
+  "address": "56, MG Road, Indore",
+  "generated_at": "2026-06-20T13:43:42.494317",
+  "generator": "VibeShow Website Auto-Generator v1.0",
+  "templates": "restaurant-business-site",
+  "folder": "spice-garden",
+  "files": [
+    "index.html",
+    "css/style.css",
+    "js/script.js",
+    "vercel.json"
+  ],
+  "deployed": false,
+  "url": null
+}

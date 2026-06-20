@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spice Garden | Restaurant & Cafe in Indore</title>
+    <meta name="description" content="Authentic Indian restaurant serving traditional cuisine since 2010">
+    <meta name="keywords" content="Spice Garden, Indore, Fine Dining, Catering, Home Delivery, Private Events">
+    <link rel="canonical" href="https://spicegarden.vercel.app">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* ========== CSS VARIABLES ========== */
+        
+:root {
+    --primary: #c0392b;
+    --secondary: #e67e22;
+    --accent: #f39c12;
+    --dark: #2d2d2d;
+    --light: #fdf5f0;
+    --primary-rgb: 192,57,43;
+    --secondary-rgb: 230,126,34;
+}
+
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; color: #333; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 700; }
+        
+        /* ========== NAVBAR ========== */
+        .navbar {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            padding: 12px 0;
+            transition: all 0.3s;
+        }
+        .navbar.scrolled { padding: 8px 0; }
+        .navbar-brand { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.5rem; color: var(--dark) !important; }
+        .navbar-brand i { color: var(--primary); margin-right: 8px; }
+        .nav-link { font-weight: 500; color: #555 !important; margin: 0 8px; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--primary) !important; }
+        .nav-cta { background: var(--primary); color: white !important; padding: 8px 20px !important; border-radius: 50px; }
+        .nav-cta:hover { background: var(--dark) !important; color: white !important; }
+        
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+            background: linear-gradient(135deg, var(--light) 0%, white 100%);
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, #c0392b15 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero-content h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 1.5rem; }
+        .hero-content h1 span { color: var(--primary); }
+        .hero-content p { font-size: 1.15rem; color: #666; line-height: 1.8; margin-bottom: 2rem; }
+        .hero-badge { display: inline-block; background: var(--primary); color: white; padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 500; margin-bottom: 1rem; }
+        .hero-image { position: relative; z-index: 1; }
+        .hero-image img { width: 100%; border-radius: 20px; box-shadow: 0 20px 80px rgba(0,0,0,0.15); }
+        .hero-image .floating-badge {
+            position: absolute; bottom: -20px; left: -20px;
+            background: var(--primary); color: white;
+            padding: 15px 25px; border-radius: 12px;
+            font-weight: 600; font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .hero-stats { display: flex; gap: 40px; margin-top: 2rem; }
+        .hero-stat h3 { font-size: 2rem; color: var(--primary); margin-bottom: 0; }
+        .hero-stat p { font-size: 0.85rem; color: #888; margin: 0; }
+        
+        /* ========== BUTTONS ========== */
+        .btn-primary { background: var(--primary) !important; border-color: var(--primary) !important; padding: 12px 30px; border-radius: 50px; font-weight: 600; }
+        .btn-primary:hover { background: var(--dark) !important; border-color: var(--dark) !important; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .btn-outline { border: 2px solid var(--primary); color: var(--primary); padding: 12px 30px; border-radius: 50px; font-weight: 600; background: transparent; }
+        .btn-outline:hover { background: var(--primary); color: white; transform: translateY(-2px); }
+        .btn-whatsapp { background: #25D366 !important; border-color: #25D366 !important; color: white !important; padding: 12px 30px; border-radius: 50px; font-weight: 600; }
+        .btn-whatsapp:hover { background: #128C7E !important; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(37,211,102,0.25); }
+        
+        /* ========== SECTIONS ========== */
+        section { padding: 100px 0; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; margin-bottom: 15px; position: relative; display: inline-block; }
+        .section-title h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 60px; height: 3px; background: var(--primary); border-radius: 3px; }
+        .section-title p { color: #888; font-size: 1.05rem; max-width: 600px; margin: 20px auto 0; }
+        .bg-light-section { background: var(--light); }
+        
+        /* ========== SERVICE CARDS ========== */
+        .service-card {
+            background: white; padding: 35px 25px; border-radius: 16px;
+            text-align: center; transition: all 0.4s;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.05);
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+        .service-icon { width: 70px; height: 70px; background: var(--light); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.8rem; color: var(--primary); transition: 0.4s; }
+        .service-card:hover .service-icon { background: var(--primary); color: white; transform: rotateY(180deg); }
+        .service-card h5 { margin-bottom: 10px; font-family: 'Inter', sans-serif; font-weight: 600; }
+        .service-card p { color: #888; font-size: 0.9rem; margin: 0; }
+        
+        /* ========== ABOUT ========== */
+        .about-section { background: white; }
+        .about-content h2 { font-size: 2.2rem; margin-bottom: 20px; }
+        .about-content .lead { color: var(--primary); font-weight: 600; margin-bottom: 15px; }
+        .about-content p { color: #666; line-height: 1.8; }
+        .about-content ul { list-style: none; padding: 0; margin-top: 20px; }
+        .about-content ul li { padding: 8px 0; color: #555; }
+        .about-content ul li i { color: var(--primary); margin-right: 10px; }
+        .about-image img { width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+        
+        /* ========== GALLERY ========== */
+        .gallery-item { position: relative; overflow: hidden; border-radius: 12px; margin-bottom: 30px; cursor: pointer; }
+        .gallery-item img { width: 100%; height: 280px; object-fit: cover; transition: 0.5s; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.4s; }
+        .gallery-item:hover .overlay { opacity: 1; }
+        .gallery-item .overlay span { color: white; font-weight: 600; padding: 8px 20px; border: 2px solid white; border-radius: 50px; }
+        
+        /* ========== TESTIMONIALS ========== */
+        .testimonials-section { background: var(--light); }
+        .testimonial-card {
+            background: white; padding: 40px; border-radius: 20px;
+            text-align: center; max-width: 600px; margin: 0 auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+        .testimonial-card .stars { color: #f1c40f; font-size: 1.2rem; margin-bottom: 15px; }
+        .testimonial-card p { font-style: italic; color: #666; line-height: 1.8; font-size: 1.05rem; }
+        .testimonial-card .client { margin-top: 20px; }
+        .testimonial-card .client strong { display: block; color: var(--dark); }
+        .testimonial-card .client span { color: #888; font-size: 0.85rem; }
+        .testimonial-controls { text-align: center; margin-top: 30px; }
+        .testimonial-controls button { background: none; border: 2px solid var(--primary); color: var(--primary); width: 45px; height: 45px; border-radius: 50%; margin: 0 5px; font-size: 1.1rem; cursor: pointer; transition: 0.3s; }
+        .testimonial-controls button:hover { background: var(--primary); color: white; }
+        .testimonial-dots { text-align: center; margin-top: 15px; }
+        .testimonial-dots .dot { display: inline-block; width: 10px; height: 10px; background: #ddd; border-radius: 50%; margin: 0 5px; cursor: pointer; }
+        .testimonial-dots .dot.active { background: var(--primary); }
+        
+        /* ========== CONTACT ========== */
+        .contact-section { background: white; }
+        .contact-info { background: var(--dark); color: white; padding: 40px; border-radius: 20px; height: 100%; }
+        .contact-info h4 { color: white; margin-bottom: 25px; }
+        .contact-info .info-item { display: flex; gap: 15px; margin-bottom: 20px; }
+        .contact-info .info-item i { font-size: 1.3rem; color: var(--accent); margin-top: 3px; }
+        .contact-form { padding: 20px; }
+        .contact-form .form-control { padding: 12px 16px; border-radius: 10px; border: 1px solid #e0e0e0; }
+        .contact-form .form-control:focus { box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.15); border-color: var(--primary); }
+        .social-links { display: flex; gap: 15px; margin-top: 30px; }
+        .social-links a { width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: 0.3s; }
+        .social-links a:hover { background: var(--primary); transform: translateY(-3px); }
+        
+        /* ========== CTA BANNER ========== */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white; padding: 80px 0; text-align: center;
+        }
+        .cta-banner h2 { font-size: 2.5rem; color: white; margin-bottom: 15px; }
+        .cta-banner p { opacity: 0.9; font-size: 1.1rem; margin-bottom: 30px; }
+        .cta-banner .btn-light { padding: 14px 40px; border-radius: 50px; font-weight: 600; }
+        
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--dark); color: rgba(255,255,255,0.7);
+            padding: 60px 0 30px;
+        }
+        .footer h5 { color: white; font-family: 'Inter', sans-serif; font-weight: 600; margin-bottom: 20px; }
+        .footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+        .footer a:hover { color: white; }
+        .footer ul { list-style: none; padding: 0; }
+        .footer ul li { padding: 6px 0; }
+        .footer ul li::before { content: '›'; margin-right: 8px; color: var(--accent); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 40px; text-align: center; font-size: 0.9rem; }
+        
+        /* ========== MAP ========== */
+        .map-container { border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .map-container iframe { width: 100%; height: 350px; border: 0; }
+        
+        /* ========== WHATSAPP FLOAT ========== */
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px;
+            width: 60px; height: 60px; background: #25D366;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.8rem; box-shadow: 0 5px 25px rgba(37,211,102,0.4);
+            z-index: 999; cursor: pointer; transition: 0.3s;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); color: white; box-shadow: 0 8px 35px rgba(37,211,102,0.5); }
+        
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 991px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero { padding-top: 60px; text-align: center; }
+            .hero-stats { justify-content: center; }
+        }
+        @media (max-width: 767px) {
+            section { padding: 60px 0; }
+            .hero-content h1 { font-size: 2rem; }
+            .section-title h2 { font-size: 1.8rem; }
+            .hero-stats { gap: 20px; flex-wrap: wrap; }
+            .hero-stat h3 { font-size: 1.5rem; }
+            .cta-banner h2 { font-size: 1.8rem; }
+        }
+        @media (max-width: 480px) {
+            .hero-content h1 { font-size: 1.6rem; }
+            .navbar-brand { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="bi bi-restaurant"></i> Spice Garden</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link nav-cta" href="tel:+91-98930-12345"><i class="bi bi-telephone-fill"></i> Call Now</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 hero-content">
+                <div class="hero-badge">🍽️ Trusted in Indore</div>
+                <h1>Welcome to <span>Spice Garden</span></h1>
+                <p>Authentic Indian restaurant serving traditional cuisine since 2010</p>
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="#contact" class="btn btn-primary"><i class="bi bi-calendar-check"></i> Get in Touch</a>
+                    <a href="https://wa.me/91-98930-12345?text=Hi%20Spice%20Garden%2C%20I%27m%20interested%20in%20your%20services" target="_blank" class="btn btn-whatsapp"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat"><h3>50+</h3><p>Happy Clients</p></div>
+                    <div class="hero-stat"><h3>5+</h3><p>Years Experience</p></div>
+                    <div class="hero-stat"><h3>Indore</h3><p>Local Service</p></div>
+                </div>
+            </div>
+            <div class="col-lg-6 hero-image">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80" alt="Spice Garden - Restaurant & Cafe in Indore">
+                <div class="floating-badge"><i class="bi bi-patch-check-fill"></i> Verified Business</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="about-section" id="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 about-image mb-4 mb-lg-0" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="About Spice Garden">
+            </div>
+            <div class="col-lg-6 about-content" data-aos="fade-left">
+                <p class="lead">About Spice Garden</p>
+                <h2>Your Trusted Partner in Indore</h2>
+                <p>Authentic Indian restaurant serving traditional cuisine since 2010</p>
+                <ul>
+                    
+                    <li><i class="bi bi-check-circle-fill"></i> menu preview</li>
+                    <li><i class="bi bi-check-circle-fill"></i> online ordering</li>
+                    <li><i class="bi bi-check-circle-fill"></i> reservation</li>
+                    <li><i class="bi bi-check-circle-fill"></i> location</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary mt-3"><i class="bi bi-send"></i> Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SERVICES ========== -->
+<section class="bg-light-section" id="services">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Our Services</h2>
+            <p>We offer a wide range of professional services tailored to your needs</p>
+        </div>
+        <div class="row g-4">
+            
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="bi bi-star"></i></div>
+                        <h5>Fine Dining</h5>
+                        <p>Professional fine dining services delivered with quality and care by Spice Garden.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="bi bi-heart"></i></div>
+                        <h5>Catering</h5>
+                        <p>Professional catering services delivered with quality and care by Spice Garden.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="bi bi-gear"></i></div>
+                        <h5>Home Delivery</h5>
+                        <p>Professional home delivery services delivered with quality and care by Spice Garden.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="bi bi-lightning"></i></div>
+                        <h5>Private Events</h5>
+                        <p>Professional private events services delivered with quality and care by Spice Garden.</p>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== GALLERY ========== -->
+<section id="gallery">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Our Gallery</h2>
+            <p>Take a look at our work and see the quality we deliver</p>
+        </div>
+        <div class="row g-4">
+            
+                <div class="col-md-4 gallery-item" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Spice Garden Gallery 1" loading="lazy">
+                    <div class="overlay"><span>View Project</span></div>
+                </div>
+                <div class="col-md-4 gallery-item" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&q=80" alt="Spice Garden Gallery 2" loading="lazy">
+                    <div class="overlay"><span>View Project</span></div>
+                </div>
+                <div class="col-md-4 gallery-item" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&q=80" alt="Spice Garden Gallery 3" loading="lazy">
+                    <div class="overlay"><span>View Project</span></div>
+                </div>
+                <div class="col-md-4 gallery-item" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80" alt="Spice Garden Gallery 4" loading="lazy">
+                    <div class="overlay"><span>View Project</span></div>
+                </div>
+                <div class="col-md-4 gallery-item" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80" alt="Spice Garden Gallery 5" loading="lazy">
+                    <div class="overlay"><span>View Project</span></div>
+                </div>
+                <div class="col-md-4 gallery-item" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea84374?w=600&q=80" alt="Spice Garden Gallery 6" loading="lazy">
+                    <div class="overlay"><span>View Project</span></div>
+                </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section class="testimonials-section" id="testimonials">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>What Our Clients Say</h2>
+            <p>Don't just take our word for it - hear from our satisfied customers</p>
+        </div>
+        <div class="testimonial-carousel" data-aos="fade-up">
+            
+                <div class="testimonial-card active">
+                    <div class="stars">★★★★★</div>
+                    <p>"Excellent service! Spice Garden transformed our online presence. Highly recommended for businesses in Indore."</p>
+                    <div class="client"><strong>- Rahul S.</strong><span>Happy Client</span></div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Professional, reliable, and affordable. The team at Spice Garden delivered beyond expectations."</p>
+                    <div class="client"><strong>- Priya M.</strong><span>Regular Customer</span></div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"I've been a customer for years. Spice Garden consistently provides top-notch service. They are the best in Indore!"</p>
+                    <div class="client"><strong>- Amit K.</strong><span>Loyal Client</span></div>
+                </div>
+            <div class="testimonial-dots">
+                <span class="dot active" onclick="currentTestimonial(0)"></span>
+                <span class="dot" onclick="currentTestimonial(1)"></span>
+                <span class="dot" onclick="currentTestimonial(2)"></span>
+            </div>
+            <div class="testimonial-controls">
+                <button onclick="prevTestimonial()"><i class="bi bi-chevron-left"></i></button>
+                <button onclick="nextTestimonial()"><i class="bi bi-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="contact-section" id="contact">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Get in Touch</h2>
+            <p>Ready to work with us? Reach out and we'll get back to you within 24 hours</p>
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-5" data-aos="fade-right">
+                <div class="contact-info">
+                    <h4><i class="bi bi-chat-dots"></i> Contact Information</h4>
+                    <div class="info-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <div><strong>Address</strong><br>56, MG Road, Indore</div>
+                    </div>
+                    <div class="info-item">
+                        <i class="bi bi-telephone"></i>
+                        <div><strong>Phone</strong><br><a href="tel:+91-98930-12345" style="color: white;">+91-98930-12345</a></div>
+                    </div>
+                    <div class="info-item">
+                        <i class="bi bi-envelope"></i>
+                        <div><strong>Email</strong><br><a href="mailto:info@spicegarden.in" style="color: white;">info@spicegarden.in</a></div>
+                    </div>
+                    <div class="info-item">
+                        <i class="bi bi-clock"></i>
+                        <div><strong>Working Hours</strong><br>Mon - Sat: 9:00 AM - 8:00 PM</div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                        <a href="https://wa.me/91-98930-12345" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7" data-aos="fade-left">
+                <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Your Name *</label>
+                            <input type="text" class="form-control" name="name" required placeholder="Enter your name">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Phone Number *</label>
+                            <input type="tel" class="form-control" name="phone" required placeholder="Enter your phone">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" name="email" placeholder="Enter your email">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Service Interested In</label>
+                            <select class="form-control" name="service">
+                                <option value="">Select a service...</option>
+                                <option value="Fine Dining">Fine Dining</option><option value="Catering">Catering</option><option value="Home Delivery">Home Delivery</option><option value="Private Events">Private Events</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Message *</label>
+                            <textarea class="form-control" name="message" rows="4" required placeholder="Tell us about your requirements..."></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary btn-lg w-100">
+                                <i class="bi bi-send"></i> Send Message
+                            </button>
+                        </div>
+                    </div>
+                    <div id="formStatus" class="mt-3"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== MAP ========== -->
+<section class="bg-light-section py-5">
+    <div class="container">
+        <div class="map-container" data-aos="zoom-in">
+            <iframe src="https://www.google.com/maps?q=Indore+India&output=embed" allowfullscreen loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- ========== CTA BANNER ========== -->
+<section class="cta-banner">
+    <div class="container">
+        <h2 data-aos="fade-up">Ready to Get Started?</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Contact Spice Garden today and experience the best service in Indore</p>
+        <div data-aos="fade-up" data-aos-delay="200">
+            <a href="tel:+91-98930-12345" class="btn btn-light btn-lg me-3"><i class="bi bi-telephone"></i> Call Now</a>
+            <a href="https://wa.me/91-98930-12345?text=Hi%20Spice%20Garden%2C%20I%20need%20your%20services" target="_blank" class="btn btn-outline-light btn-lg"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <h5><i class="bi bi-restaurant"></i> Spice Garden</h5>
+                <p>Authentic Indian restaurant serving traditional cuisine since 2010</p>
+                <div class="social-links">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-youtube"></i></a>
+                    <a href="https://wa.me/91-98930-12345" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <h5>Our Services</h5>
+                <ul>
+                    <li><a href="#services">Fine Dining</a></li><li><a href="#services">Catering</a></li><li><a href="#services">Home Delivery</a></li><li><a href="#services">Private Events</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <h5>Contact Info</h5>
+                <ul>
+                    <li><i class="bi bi-geo-alt"></i> 56, MG Road, Indore</li>
+                    <li><i class="bi bi-telephone"></i> +91-98930-12345</li>
+                    <li><i class="bi bi-envelope"></i> info@spicegarden.in</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Spice Garden. All rights reserved. | Powered by <a href="https://vibeshow.in" target="_blank" style="color: var(--accent);">VibeShow</a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- ========== WHATSAPP FLOATING ========== -->
+<a href="https://wa.me/91-98930-12345?text=Hi%20Spice%20Garden%2C%20I%20need%20more%20information" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- ========== SCRIPTS ========== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // Testimonial carousel
+    let currentSlide = 0;
+    const testimonials = document.querySelectorAll('.testimonial-card');
+    const dots = document.querySelectorAll('.dot');
+    
+    function showTestimonial(index) {
+        testimonials.forEach((t, i) => {
+            t.style.display = i === index ? 'block' : 'none';
+        });
+        dots.forEach((d, i) => {
+            d.classList.toggle('active', i === index);
+        });
+        currentSlide = index;
+    }
+    
+    function nextTestimonial() {
+        showTestimonial((currentSlide + 1) % testimonials.length);
+    }
+    
+    function prevTestimonial() {
+        showTestimonial((currentSlide - 1 + testimonials.length) % testimonials.length);
+    }
+    
+    function currentTestimonial(index) {
+        showTestimonial(index);
+    }
+    
+    // Auto-rotate testimonials
+    setInterval(nextTestimonial, 5000);
+    
+    // Initialize first testimonial
+    showTestimonial(0);
+    
+    // Contact form handler
+    function handleSubmit(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+        const status = document.getElementById('formStatus');
+        
+        // Build mailto link as fallback
+        const name = formData.get('name');
+        const phone = formData.get('phone');
+        const email = formData.get('email');
+        const service = formData.get('service') || 'General Inquiry';
+        const message = formData.get('message');
+        
+        const mailBody = `Name: ${name}%0APhone: ${phone}%0AEmail: ${email}%0AService: ${service}%0AMessage: ${message}`;
+        const mailto = `mailto:info@spicegarden.in?subject=Inquiry%20from%20Spice%20Garden%20Website&body=${mailBody}`;
+        
+        status.innerHTML = '<div class="alert alert-success">Thank you! We will get back to you shortly.</div>';
+        
+        // Open email client as fallback
+        window.location.href = mailto;
+        
+        // Also redirect to WhatsApp for faster response
+        setTimeout(() => {
+            window.open('https://wa.me/91-98930-12345?text=' + encodeURIComponent('Hi, I am ' + name + '. ' + message), '_blank');
+        }, 1000);
+        
+        form.reset();
+        return false;
+    }
+    
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+</body>
+</html>
