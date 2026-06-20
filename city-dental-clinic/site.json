@@ -1,0 +1,29 @@
+{
+  "business_name": "City Dental Clinic",
+  "category": "clinic",
+  "city": "Bhopal",
+  "description": "Advanced dental care with 15+ years of experience. We offer complete dental solutions.",
+  "services": [
+    "Root Canal",
+    "Dental Implants",
+    "Teeth Whitening",
+    "Braces",
+    "Checkup",
+    "Extraction"
+  ],
+  "phone": "+91-98765-43210",
+  "email": "",
+  "address": "Main Market, Bhopal",
+  "generated_at": "2026-06-20T13:43:53.322614",
+  "generator": "VibeShow Website Auto-Generator v1.0",
+  "templates": "clinic-business-site",
+  "folder": "city-dental-clinic",
+  "files": [
+    "index.html",
+    "css/style.css",
+    "js/script.js",
+    "vercel.json"
+  ],
+  "deployed": false,
+  "url": null
+}
